@@ -27,14 +27,14 @@ except ImportError:
 else:
     PROTOCOLS.append('soap')
 
-from . import rest
-try:
-    import requests
-    import json
-except ImportError:
-    pass
-else:
-    PROTOCOLS.append('rest')
+#from . import rest
+#try:
+    #import requests
+    #import json
+#except ImportError:
+    #pass
+#else:
+    #PROTOCOLS.append('rest')
 
 from magento.utils import expand_url, camel_2_snake
 
@@ -158,10 +158,11 @@ class API(object):
                     self.url, allow_none=True, transport=self.transport)
             else:
                 self.client = ServerProxy(self.url, allow_none=True)
-        elif self.protocol == 'rest':
-            # Use an authentication token as the password
-            self.client = rest.Client(self.url, self.password,
-                                      verify_ssl=self.verify_ssl)
+        # commented
+        #elif self.protocol == 'rest':
+            ## Use an authentication token as the password
+            #self.client = rest.Client(self.url, self.password,
+                    #verify_ssl=self.verify_ssl)
         else:
             self.client = Client(self.url)
 
