@@ -36,7 +36,7 @@ else:
 #else:
     #PROTOCOLS.append('rest')
 
-from magento.utils import expand_url, camel_2_snake
+from mage.utils import expand_url, camel_2_snake
 
 
 class ClientApiMeta(type):
